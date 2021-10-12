@@ -56,14 +56,12 @@ private:
 
 	std::unique_ptr<MagicDust> dust;
 	ofPixels pixels;
-	ofxCvColorImage c_depth;
-	ofxCvGrayscaleImage depth_image;
-	ofxCvGrayscaleImage depth_scaled;
 
 	bool chan0, chan1;
 
 	ofxPanel gui;
-	ofParameter<int> threshold;
+	ofParameterGroup constants;
+	ofParameter<float> maxSpeed, maxChaos, maxForce;
 	float depth_output_width;
 	float depth_output_height;
 };

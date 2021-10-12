@@ -10,13 +10,14 @@ public:
 	MagicDust(int width, int height);
 	~MagicDust();
 
-	void update(std::function<glm::vec2(float, float, float)> field_force_at, std::function<glm::ivec2(float, float)> coord, ofPixels& depth);
+	void update(std::function<glm::vec2(float, float, float)> field_force_at, std::function<glm::ivec2(float, float)> coord);
 	void draw();
 
 	void set_colors(std::vector<ofColor>& palette);
+	void set_target(float x, float y, float w, float h);
 	void set_target(float x, float y);
 
-	const glm::vec2& get_target() const;
+	const glm::vec4& get_target() const;
 
 	// Temporarily public items
 	std::vector<boid> boids; 
@@ -30,6 +31,6 @@ private:
 	ofRectangle boundary;
 	glm::vec2 bounds;
 	ofxQuadtree tree;
-	glm::vec2 target;
+	glm::vec4 target;
 
 };

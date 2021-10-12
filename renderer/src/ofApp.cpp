@@ -13,12 +13,20 @@ void ofApp::setup() {
 	ofEnableAntiAliasing();
 	ofDisableArbTex();
 
-	depth_output_width = (float)ofGetWidth() / SCALE;
-	depth_output_height = depth_output_width / DEPTH_ASPECT;
-
 	gui.setup();
-	gui.add(threshold.set("Depth Threshold", 128, 0, 255));
+	auto& controls = ControlValues::instance();
+	gui.add(maxChaos.set("Max Chaos", controls.maxChaos, 0.1, 20));
+	gui.add(maxSpeed.set("Max Speed", controls.maxSpeed, 0.1, 20));
+	gui.add(maxForce.set("Max Force", controls.maxChaos, 0.1, 20));
 
+	maxChaos.addListener(&controls, &ControlValues::chaosChanged);
+	maxSpeed.addListener(&controls, &ControlValues::speedChanged);
+	maxForce.addListener(&controls, &ControlValues::forceChanged);
+
+	constants.setName("constants");
+	constants.add(maxChaos);
+	constants.add(maxSpeed);
+	constants.add(maxForce);
 	gui.setPosition(0, 480);
 
 	dust = make_unique<MagicDust>(ofGetWidth(), ofGetHeight());
@@ -28,7 +36,6 @@ void ofApp::setup() {
 	chan0 = chan1 = true;
 
 	output.allocate(ofGetWidth(), ofGetHeight(), OF_IMAGE_COLOR);
-	depth_scaled.allocate(depth_output_width, depth_output_height);
 
 	char *version = (char*)glGetString(GL_VERSION);
 	ofLog() << "GL " << version;
@@ -117,7 +124,6 @@ ofColor ofApp::jab_random(float j, float a, float b) {
 void ofApp::update(){
 	if (paused) return;
 
-	ofPixels& depth = depth_scaled.getPixels();
 
 	dust->update([&](float x, float y, float speed) {
 		glm::ivec2 coords = field_coord(x, y);
@@ -125,7 +131,7 @@ void ofApp::update(){
 		return force;
 		}, [&](float x, float y) {
 			return field_coord(x, y);
-		}, depth);
+		});
 
 }
 
@@ -230,9 +236,12 @@ void ofApp::draw() {
 	}
 #endif // RENDER_FLOWS
 
+	ofPushStyle();
 	ofSetColor(neighborColor);
-	ofDrawCircle(dust->get_target(), 10.0);
-
+	ofNoFill();
+	auto& target = dust->get_target();
+	ofDrawRectangle(target.x, target.y, target.z, target.w);
+	ofPopStyle();
 	gui.draw();
 }
 

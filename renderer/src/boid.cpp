@@ -1,9 +1,12 @@
 #include "boid.h"
+#include "constants.h"
 
 void apply_force(boid& b, glm::vec2& force) {
+	ControlValues& controls = ControlValues::instance();
+
 	auto l = glm::length(force);
-	if (l > MAX_FORCE) {
-		force = glm::normalize(force) * MAX_FORCE;
+	if (l > controls.maxForce) {
+		force = glm::normalize(force) * controls.maxForce;
 	}
 	b.accel += force;
 
@@ -57,6 +60,14 @@ glm::vec2 separation(boid& b, std::vector<boid*>& n) {
 	return sum;
 }
 
-glm::vec2 seek(boid& b, glm::vec2& target) {
-	return glm::normalize(target - b.pos) * b.max_speed - b.vel;
+glm::vec2 seek(boid& b, glm::vec4& target) {
+	glm::vec2 centroid = { target.x + target.z / 2., target.y + target.w / 2. };
+	if (b.pos.x > target.x && b.pos.x < target.x + target.z && b.pos.y > target.y && b.pos.y < target.w) {
+		// Inside, therefore repel
+		return glm::normalize(centroid + b.pos) * b.max_speed + b.vel;
+	}
+	else {
+		// Outside, therefor attract
+		return glm::normalize(centroid - b.pos) * b.max_speed - b.vel;
+	}
 }

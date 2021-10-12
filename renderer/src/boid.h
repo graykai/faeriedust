@@ -1,6 +1,5 @@
 #pragma once
 #include "ofMain.h"
-#include "constants.h"
 
 struct boid {
 	glm::vec2 pos;
@@ -17,6 +16,6 @@ void apply_force(boid& b, glm::vec2& force);
 void tick(const float dt, boid& b, const glm::vec2& boundaries);
 
 glm::vec2 separation(boid& b, std::vector<boid*>& n);
-glm::vec2 seek(boid& b, glm::vec2& target);
+glm::vec2 seek(boid& b, glm::vec4& target);
 
 
