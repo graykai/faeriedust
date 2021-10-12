@@ -38,7 +38,7 @@ private:
 	float xoff, yoff, zoff;
 	float increment;
 	bool paused, debug;
-	ofFbo channel0, channel1;
+	ofFbo channel0, channel1, channel2;
 	ofPixels output;
 	ofColor jab_random(float j, float a, float b);
 

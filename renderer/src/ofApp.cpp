@@ -33,6 +33,7 @@ void ofApp::setup() {
 
 	channel0.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
 	channel1.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
+	channel2.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
 	chan0 = chan1 = true;
 
 	output.allocate(ofGetWidth(), ofGetHeight(), OF_IMAGE_COLOR);
@@ -177,28 +178,27 @@ void ofApp::draw() {
 		channel0.end();
 
 		channel1.begin();
-		ofClear(0, 0, 0, 255);
+		channel0.draw(0, 0);
 		channel1.end();
+
+		channel2.begin();
+		ofClear(0, 0, 0, 255);
+		channel2.end();
 
 	if (chan0) {
 		for (int i = 0; i < ITERATIONS; i++) {
-			draw_with(channel0, channel1, blur_shade, HORIZONTAL, i);
-			draw_with(channel1, channel0, blur_shade, VERTICAL, i);
+			draw_with(channel1, channel2, blur_shade, HORIZONTAL, i);
+			draw_with(channel2, channel1, blur_shade, VERTICAL, i);
 		}
-		draw_with(channel0, channel1, blur_shade, HORIZONTAL, 1.);
-		draw_with(channel1, channel0, blur_shade, VERTICAL, 1.);
-	}
-
-	if (chan1) {
-		channel1.begin();
-		dust->draw_boids();
-		channel1.end();
+		draw_with(channel1, channel2, blur_shade, HORIZONTAL, 1.);
+		draw_with(channel2, channel1, blur_shade, VERTICAL, 1.);
 	}
 
 	add_shade.begin();
 	add_shade.setUniform3f("resolution", { ofGetWidth(), ofGetHeight(), 0 }); //TODO: optimize
-	add_shade.setUniformTexture("channel0", channel0.getTexture(), 0);
-	add_shade.setUniformTexture("channel1", channel1.getTexture(), 1);
+	add_shade.setUniformTexture("channel0", channel1.getTexture(), 0);
+	add_shade.setUniformTexture("channel1", channel2.getTexture(), 1);
+	add_shade.setUniformTexture("base", channel0.getTexture(), 2);
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 	add_shade.end();
 
