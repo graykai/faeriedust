@@ -61,7 +61,7 @@ private:
 
 	ofxPanel gui;
 	ofParameterGroup constants;
-	ofParameter<float> maxSpeed, maxChaos, maxForce;
+	ofParameter<float> maxSpeed, maxChaos, maxForce, blurX, blurY;
 	float depth_output_width;
 	float depth_output_height;
 };

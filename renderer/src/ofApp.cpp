@@ -18,15 +18,21 @@ void ofApp::setup() {
 	gui.add(maxChaos.set("Max Chaos", controls.maxChaos, 0, 2));
 	gui.add(maxSpeed.set("Max Speed", controls.maxSpeed, 0.1, 20));
 	gui.add(maxForce.set("Max Force", controls.maxForce, 0.1, 5));
+	gui.add(blurX.set("Blur 1", controls.blurControl.x, 1, 10));
+	gui.add(blurY.set("Blur 2", controls.blurControl.y, 0, 2));
 
 	maxChaos.addListener(&controls, &ControlValues::chaosChanged);
 	maxSpeed.addListener(&controls, &ControlValues::speedChanged);
 	maxForce.addListener(&controls, &ControlValues::forceChanged);
+	blurX.addListener(&controls, &ControlValues::blurXChanged);
+	blurY.addListener(&controls, &ControlValues::blurYChanged);
 
 	constants.setName("constants");
 	constants.add(maxChaos);
 	constants.add(maxSpeed);
 	constants.add(maxForce);
+	constants.add(blurX);
+	constants.add(blurY);
 	gui.setPosition(0, 480);
 
 	dust = make_unique<MagicDust>(ofGetWidth(), ofGetHeight());
@@ -200,11 +206,14 @@ void ofApp::draw() {
 		channel0.end();
 	}
 
+	const auto& controls = ControlValues::instance();
+
 	add_shade.begin();
 	add_shade.setUniform3f("resolution", { ofGetWidth(), ofGetHeight(), 0 }); //TODO: optimize
 	add_shade.setUniformTexture("channel0", channel1.getTexture(), 0);
 	add_shade.setUniformTexture("channel1", channel2.getTexture(), 1);
 	add_shade.setUniformTexture("base", channel0.getTexture(), 2);
+	add_shade.setUniform2f("blurScale", controls.blurControl);
 	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 	add_shade.end();
 
