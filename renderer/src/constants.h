@@ -6,13 +6,13 @@ const float SCALE = 30;
 const float NEIGHBORHOOD = 50;
 const float BUFFER = 50;
 const float INCREMENT = 0.05f;
-const float INITIAL_MAX_CHAOS = 3.;
-const float INITIAL_MAX_SPEED = 2.;
+const float INITIAL_MAX_CHAOS = 1.5;
+const float INITIAL_MAX_SPEED = 3.78;
 const glm::vec2 HORIZONTAL = { 1., 0. };
 const glm::vec2 VERTICAL = { 0., 1. };
 const glm::vec2 ZERO = { 0., 0. };
-const float INITIAL_MAX_FORCE = 1.;
-const int STARTING_BOIDS = 10000;
+const float INITIAL_MAX_FORCE = 1.5;
+const int STARTING_BOIDS = 8000;
 const int PALETTE_SIZE = 5;
 const int ITERATIONS = 5;
 

@@ -1,8 +1,14 @@
 $PROJECT_ROOT = "$PSScriptRoot\.."
+
 $OF_RELEASE = "of_v0.11.2_vs2017_release"
 $OF_DEP_URL = "https://s3.us-west-1.amazonaws.com/photos.urbn.photos/deps/$OF_RELEASE.zip"
 $OF_ZIP_PATH = "$PROJECT_ROOT\deps\of.zip"
 $OF_DEP_PATH = "$PROJECT_ROOT\deps\of\of"
+
+$ADDON_PATH = "$PROJECT_ROOT\addons"
+$ADDON_DEST_PATH = "$OF_DEP_PATH\addons"
+
+[string[]]$ADDONS = "ofxKinectForWindows2"
 
 function OpenFramework {
 
@@ -29,6 +35,15 @@ function OpenFramework {
 	}
 }
 
+function addon([string]$addonName) {
+	if (-not(Test-Path -Path "$ADDON_DEST_PATH\$addonName" -PathType Container)) {
+		Write-Host "Copying addon $addonName to OpenFrameworks"
+		Copy-Item -Path "$ADDON_PATH\$addonName" -Destination "$ADDON_DEST_PATH\$addonName" -Recurse
+	}
+}
+
 
 OpenFramework
-## TODO: Install addons by downloading or checking out.
+foreach($addon_name in $ADDONS) {
+	addon($addon_name)
+}

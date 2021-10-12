@@ -15,9 +15,9 @@ void ofApp::setup() {
 
 	gui.setup();
 	auto& controls = ControlValues::instance();
-	gui.add(maxChaos.set("Max Chaos", controls.maxChaos, 0.1, 20));
+	gui.add(maxChaos.set("Max Chaos", controls.maxChaos, 0, 2));
 	gui.add(maxSpeed.set("Max Speed", controls.maxSpeed, 0.1, 20));
-	gui.add(maxForce.set("Max Force", controls.maxChaos, 0.1, 20));
+	gui.add(maxForce.set("Max Force", controls.maxForce, 0.1, 5));
 
 	maxChaos.addListener(&controls, &ControlValues::chaosChanged);
 	maxSpeed.addListener(&controls, &ControlValues::speedChanged);
@@ -194,6 +194,12 @@ void ofApp::draw() {
 		draw_with(channel2, channel1, blur_shade, VERTICAL, 1.);
 	}
 
+	if (!chan1) {
+		channel0.begin();
+		ofClear(0, 0, 0, 255);
+		channel0.end();
+	}
+
 	add_shade.begin();
 	add_shade.setUniform3f("resolution", { ofGetWidth(), ofGetHeight(), 0 }); //TODO: optimize
 	add_shade.setUniformTexture("channel0", channel1.getTexture(), 0);
@@ -204,13 +210,8 @@ void ofApp::draw() {
 
 #endif // RENDER_MAGIC
 
-#ifdef RENDER_DEPTH
-	ofPushMatrix();
-	c_depth.draw(640, 0);
-	depth_image.draw(0, 0);
-	depth_scaled.draw(640, 480);
-	ofPopMatrix();
-#endif // RENDER_DEPTH
+	const auto& target = dust->get_target();
+	ofDrawBitmapString(" target: " + ofToString(target.x) + ", " + ofToString(target.y), 10, 10);
 
 #ifdef RENDER_FLOWS
 
@@ -239,7 +240,6 @@ void ofApp::draw() {
 	ofPushStyle();
 	ofSetColor(neighborColor);
 	ofNoFill();
-	auto& target = dust->get_target();
 	ofDrawRectangle(target.x, target.y, target.z, target.w);
 	ofPopStyle();
 	gui.draw();

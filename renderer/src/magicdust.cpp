@@ -21,7 +21,7 @@ void MagicDust::update(std::function<glm::vec2(float,float,float)> field_force_a
 		glm::ivec2 c = coord(b.pos.x, b.pos.y);
 		float seek_scale = 1;
 		//apply_force(b, seeking + flow + sep + chaos * 0.25);
-		apply_force(b, seeking * seek_scale + sep + flow * 0.25);
+		apply_force(b, seeking * seek_scale + sep + chaos*0.125 + flow * 0.25);
 	}
 
 	for (auto& b : boids) {
