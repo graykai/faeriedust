@@ -1,3 +1,3 @@
 ofxGui
-ofxOpenCv
+ofxOsc
 ofxQuadtree

@@ -64,7 +64,7 @@ glm::vec2 seek(boid& b, glm::vec4& target) {
 	glm::vec2 centroid = { target.x + target.z / 2., target.y + target.w / 2. };
 	if (b.pos.x > target.x && b.pos.x < target.x + target.z && b.pos.y > target.y && b.pos.y < target.w) {
 		// Inside, therefore repel
-		return (glm::normalize(b.pos - centroid) * b.max_speed * 2.0 - b.vel);
+		return (glm::normalize(b.pos - centroid) * b.max_speed * 0.75 - b.vel);
 	}
 	else {
 		// Outside, therefor attract

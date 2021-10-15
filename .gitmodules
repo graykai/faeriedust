@@ -1,3 +1,6 @@
 [submodule "addons/ofxKinectForWindows2"]
 	path = addons/ofxKinectForWindows2
 	url = https://github.com/elliotwoods/ofxKinectForWindows2.git
+[submodule "addons/ofxQuadtree"]
+	path = addons/ofxQuadtree
+	url = https://github.com/graysonarts/ofxQuadtree.git

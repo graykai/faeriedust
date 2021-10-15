@@ -3,9 +3,8 @@
 #include "ofMain.h" 
 #include "constants.h"
 #include "ofxQuadtree.h"
-#include "ofxLibRealSense2P.h"
-#include "ofxOpenCv.h"
 #include "ofxGui.h"
+#include "OscControl.h"
 #include "boid.h"
 #include "magicdust.h"
 
@@ -27,6 +26,10 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+		void onTargetUpdate(float x, float y);
+		void onTargetUpdate(float x, float y, float w, float h);
+		void onPause(bool state);
 
 private:
 	std::vector<ofColor> palette;
@@ -64,4 +67,6 @@ private:
 	ofParameter<float> maxSpeed, maxChaos, maxForce, blurX, blurY;
 	float depth_output_width;
 	float depth_output_height;
+
+	OscControl rx;
 };

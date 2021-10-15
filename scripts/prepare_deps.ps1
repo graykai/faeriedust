@@ -8,7 +8,7 @@ $OF_DEP_PATH = "$PROJECT_ROOT\deps\of\of"
 $ADDON_PATH = "$PROJECT_ROOT\addons"
 $ADDON_DEST_PATH = "$OF_DEP_PATH\addons"
 
-[string[]]$ADDONS = "ofxKinectForWindows2"
+[string[]]$ADDONS = "ofxKinectForWindows2","ofxQuadtree"
 
 function OpenFramework {
 

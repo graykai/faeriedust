@@ -13,6 +13,8 @@ void ofApp::setup() {
 	ofEnableAntiAliasing();
 	ofDisableArbTex();
 
+	rx.setup(RX_PORT, this);
+
 	gui.setup();
 	auto& controls = ControlValues::instance();
 	gui.add(maxChaos.set("Max Chaos", controls.maxChaos, 0, 2));
@@ -129,6 +131,7 @@ ofColor ofApp::jab_random(float j, float a, float b) {
 
 //--------------------------------------------------------------
 void ofApp::update(){
+	rx.update();
 	if (paused) return;
 
 

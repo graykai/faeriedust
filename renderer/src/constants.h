@@ -13,9 +13,10 @@ const glm::vec2 VERTICAL = { 0., 1. };
 const glm::vec2 ZERO = { 0., 0. };
 const glm::vec2 INITIAL_BLUR = { 5.0, 0.75 };
 const float INITIAL_MAX_FORCE = 1.5;
-const int STARTING_BOIDS = 9000;
+const int STARTING_BOIDS = 7000;
 const int PALETTE_SIZE = 5;
 const int ITERATIONS = 5;
+const uint16_t RX_PORT = 8000;
 
 class ControlValues {
 public:
