@@ -8,6 +8,8 @@
 #include "boid.h"
 #include "magicdust.h"
 
+#define PRODUCTION
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -29,7 +31,11 @@ class ofApp : public ofBaseApp{
 
 		void onTargetUpdate(float x, float y);
 		void onTargetUpdate(float x, float y, float w, float h);
+		void onOffsetUpdate(float x, float y);
+
 		void onPause(bool state);
+
+		bool calibrationMode = false;
 
 private:
 	std::vector<ofColor> palette;
@@ -52,6 +58,7 @@ private:
 	boid new_boid_at(float x, float y, ofColor c);
 	void draw_with(ofFbo& source, ofFbo& target, ofShader& shader, const glm::vec2& direction, float scale);
 	void update_target_location();
+	void renderTarget(bool filled=false);
 
 
 	ofShader blur_shade;
@@ -64,9 +71,11 @@ private:
 
 	ofxPanel gui;
 	ofParameterGroup constants;
-	ofParameter<float> maxSpeed, maxChaos, maxForce, blurX, blurY;
+	ofParameter<float> maxSpeed, maxChaos, maxForce, blurX, blurY, offsetX, offsetY;
 	float depth_output_width;
 	float depth_output_height;
+
+	glm::vec2 debugOffset;
 
 	OscControl rx;
 };

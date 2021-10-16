@@ -8,6 +8,9 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
 
+#ifdef PRODUCTION
+	ofSetFullscreen(true);
+#endif
 	ofSetFrameRate(60.);
 	ofEnableAlphaBlending();
 	ofEnableAntiAliasing();
@@ -22,12 +25,16 @@ void ofApp::setup() {
 	gui.add(maxForce.set("Max Force", controls.maxForce, 0.1, 5));
 	gui.add(blurX.set("Blur 1", controls.blurControl.x, 1, 10));
 	gui.add(blurY.set("Blur 2", controls.blurControl.y, 0, 2));
+	gui.add(offsetX.set("Offset X", controls.offset.x, -1, 1));
+	gui.add(offsetY.set("Offset Y", controls.offset.y, -1, 1));
 
 	maxChaos.addListener(&controls, &ControlValues::chaosChanged);
 	maxSpeed.addListener(&controls, &ControlValues::speedChanged);
 	maxForce.addListener(&controls, &ControlValues::forceChanged);
 	blurX.addListener(&controls, &ControlValues::blurXChanged);
 	blurY.addListener(&controls, &ControlValues::blurYChanged);
+	offsetX.addListener(&controls, &ControlValues::offsetXChanged);
+	offsetY.addListener(&controls, &ControlValues::offsetYChanged);
 
 	constants.setName("constants");
 	constants.add(maxChaos);
@@ -133,7 +140,7 @@ ofColor ofApp::jab_random(float j, float a, float b) {
 void ofApp::update(){
 	rx.update();
 	if (paused) return;
-
+	if (calibrationMode) return;
 
 	dust->update([&](float x, float y, float speed) {
 		glm::ivec2 coords = field_coord(x, y);
@@ -176,8 +183,39 @@ glm::vec2 ofApp::field_force_at(int col, int row, float speed) {
 	return glm::normalize(force) * speed;
 }
 
+void ofApp::renderTarget(bool filled) {
+	const auto& target = dust->get_target();
+	ofPushStyle();
+	ofSetColor(neighborColor);
+	if (filled) {
+		ofFill();
+	}
+	else {
+		ofSetLineWidth(10);
+		ofNoFill();
+	}
+	ofDrawRectangle(target.x, target.y, target.z, target.w);
+	string msg = "Window Size: " + ofToString(ofGetWidth()) + ", " + ofToString(ofGetHeight());
+	ofDrawBitmapString(msg, 10, 10);
+	msg = "Incoming: " + ofToString(debugOffset);
+	ofDrawBitmapString(msg, 10, 20);
+	msg = "Target: " + ofToString(target.x);
+	ofDrawBitmapString(msg, 10, 30);
+	msg = ", " + ofToString(target.y);
+	ofDrawBitmapString(msg, 150, 30);
+	msg = "Offset: " + ofToString(offsetX) + ", " + ofToString(offsetY);
+	ofDrawBitmapString(msg, 10, 40);
+	ofPopStyle();
+}
+
 //--------------------------------------------------------------
 void ofApp::draw() {
+	if (calibrationMode) {
+		ofClear(ofColor::black);
+		renderTarget(true);
+		return;
+	}
+
 
 #ifdef RENDER_MAGIC
 
@@ -222,8 +260,8 @@ void ofApp::draw() {
 
 #endif // RENDER_MAGIC
 
-	const auto& target = dust->get_target();
-	ofDrawBitmapString(" target: " + ofToString(target.x) + ", " + ofToString(target.y), 10, 10);
+	renderTarget(false);
+
 
 #ifdef RENDER_FLOWS
 
@@ -248,12 +286,6 @@ void ofApp::draw() {
 		}
 	}
 #endif // RENDER_FLOWS
-
-	ofPushStyle();
-	ofSetColor(neighborColor);
-	ofNoFill();
-	ofDrawRectangle(target.x, target.y, target.z, target.w);
-	ofPopStyle();
 	gui.draw();
 }
 

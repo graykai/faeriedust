@@ -4,6 +4,8 @@
 void ofApp::setup() {
 	setupOsc();
 	setupKinect();
+	offset = { 0., 0. };
+	calibrationMode = false;
 
 	ofSetBackgroundAuto(false);
 	lastSendTime = ofGetElapsedTimeMillis();
@@ -49,9 +51,10 @@ void ofApp::applySeeking() {
 }
 
 #define worldScale(v, m) ofMap(v, 0.0, m, 0.0, 1.0)
+#define depthScale(x, y) ofMap(x, 0.0, 1.0, 0.0, DEPTH_WIDTH), ofMap(y, 0.0, 1.0, 0.0, DEPTH_HEIGHT)
 
 void ofApp::sendBoundingUpdate() {
-	if (!bodyDetected) {
+	if (!bodyDetected && !calibrationMode) {
 		return;
 	}
 	uint64_t now = ofGetElapsedTimeMillis();
@@ -59,21 +62,54 @@ void ofApp::sendBoundingUpdate() {
 		//return;
 	}
 
+	targetBounding.x = worldScale(currentBounding.x, DEPTH_WIDTH);
+	targetBounding.y = worldScale(currentBounding.y, DEPTH_HEIGHT);
+	targetBounding.width = worldScale(currentBounding.getWidth(), DEPTH_WIDTH);
+	targetBounding.height = worldScale(currentBounding.getHeight(), DEPTH_HEIGHT);
+
 	lastSendTime = now;
-	ofLog() << "Sending Location";
 	ofxOscMessage message;
 	message.setAddress("/body/target/1");
-	message.addFloatArg(worldScale(currentBounding.x, DEPTH_WIDTH));
-	message.addFloatArg(worldScale(currentBounding.y, DEPTH_HEIGHT));
-	message.addFloatArg(worldScale(currentBounding.getWidth(), DEPTH_WIDTH));
-	message.addFloatArg(worldScale(currentBounding.getHeight(), DEPTH_HEIGHT));
+	message.addFloatArg(targetBounding.x);
+	message.addFloatArg(targetBounding.y);
+	message.addFloatArg(targetBounding.width);
+	message.addFloatArg(targetBounding.height);
 	tx.sendMessage(message);
 }
 
 void ofApp::processMessage() {
+	ofxOscMessage msg;
+	bool send = false;
 	if (this->rx.getNextMessage(this->lastMessage)) {
 		// We have a new message from OSC
-		ofLog() << this->lastMessage.getAddress() << ": " << this->lastMessage.getTypeString();
+		const auto& addr = this->lastMessage.getAddress();
+		if (addr == "/3/xy") {
+			float x = this->lastMessage.getArgAsFloat(0) * 0.5 - 0.25;
+			float y = this->lastMessage.getArgAsFloat(1) * 0.5 - 0.25;
+
+			offset.x = x;
+			offset.y = y;
+			msg.setAddress("/offset");
+			msg.addFloatArg(x);
+			msg.addFloatArg(y);
+			send = true;
+		} else if (addr == "/3/toggle1") {
+			bool value = this->lastMessage.getArgAsFloat(0) > 0.5;
+			if (value) {
+				msg.setAddress("/calibration/on");
+				calibrationMode = true;
+			}
+			else {
+				msg.setAddress("/calibration/off");
+				calibrationMode = false;
+			}
+			send = true;
+		}
+		else {
+			ofLog() << this->lastMessage.getAddress() << ": " << this->lastMessage.getTypeString();
+		}
+
+		if (send) this->tx.sendMessage(msg);
 	}	
 }
 
@@ -113,10 +149,11 @@ void ofApp::draw(){
 			ofTranslate(0, DEPTH_HEIGHT);
 			ofNoFill();
 			ofSetLineWidth(3);
-			ofSetColor(ofColor::red);
-			ofDrawRectangle(targetBounding);
 			ofSetColor(ofColor::darkMagenta);
 			ofDrawRectangle(currentBounding);
+
+			ofSetColor(ofColor::orangeRed);
+			ofDrawRectangle(depthScale(targetBounding.x + offset.x, targetBounding.y + offset.y), depthScale(targetBounding.width, targetBounding.height));
 
 			ofPopMatrix();
 			ofPopStyle();

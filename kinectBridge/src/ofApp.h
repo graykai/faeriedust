@@ -41,6 +41,8 @@ class ofApp : public ofBaseApp{
 		ofRectangle currentBounding;
 		ofRectangle targetBounding;
 		bool bodyDetected;
+		bool calibrationMode;
+		glm::vec2 offset;
 		
 };
 

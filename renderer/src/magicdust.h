@@ -32,5 +32,6 @@ private:
 	glm::vec2 bounds;
 	ofxQuadtree tree;
 	glm::vec4 target;
+	glm::vec2 offset;
 
 };
