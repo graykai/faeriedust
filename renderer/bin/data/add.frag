@@ -13,5 +13,5 @@ out vec4 outputColor;
 void main()
 {
     vec2 uv = vec2(gl_FragCoord.xy / resolution.xy);
-    outputColor = blurScale.x * texture2D(channel0, uv) + blurScale.y * texture2D(channel1, uv) + texture2D(base, uv);
+    outputColor = blurScale.x * texture(channel0, uv) + blurScale.y * texture(channel1, uv) + texture(base, uv);
 }

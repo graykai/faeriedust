@@ -269,6 +269,14 @@
       <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\data\add.frag" />
+    <None Include="bin\data\shader.frag" />
+    <None Include="bin\data\shader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="bin\data\settings.xml" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ProjectExtensions>
     <VisualStudio>

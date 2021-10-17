@@ -8,7 +8,7 @@
 #include "boid.h"
 #include "magicdust.h"
 
-#define PRODUCTION
+//#define PRODUCTION
 
 class ofApp : public ofBaseApp{
 
