@@ -67,6 +67,8 @@ std::vector<boid*> MagicDust::neighbors_of(glm::vec2& pos, float radius) {
 		retval.emplace_back(results[i]);
 	}
 
+	delete results;
+
 	return retval;
 }
 

@@ -66,6 +66,7 @@ void ofApp::setup() {
 		ofExit();
 	}
 
+	setupModes();
 
 	paused = debug = false;
 
@@ -96,21 +97,29 @@ void ofApp::setup() {
 	initialize();
 }
 
+void ofApp::setupModes() {
+	selector.setup();
+	selector.addMode(0, [&]() {
+		initializeColors(0.8, 0.703787, 0.641102, 20923); // Icey Mode
+	});
+	selector.addMode(1, [&]() {
+		initializeColors(0.8, 0.19834, 0.522721, 35879); // Angry Mode
+	});
+
+}
+
 void ofApp::initialize() {
 	//channel0.begin();
 	//ofBackground(32);
 	//channel0.end();
 
-	float j = ofRandomuf();
+	float a = ofRandomuf();
 	float b = ofRandomuf();
-	fieldColor = jab_to_of(0.2, j, b);
-	boidColor = jab_to_of(0.8, 1 - j, 1 - b);
-	neighborColor = jab_to_of(1.0, b, j);
+	fieldColor = jab_to_of(0.2, a, b);
+	boidColor = jab_to_of(0.8, 1 - a, 1 - b);
+	neighborColor = jab_to_of(1.0, b, a);
 
-	for (int i = 0; i < PALETTE_SIZE; i++) {
-		palette[i] = jab_random(0.8, 1. - j, 1. - b);
-	}
-
+	initializeColors(0.8, a, b);
 	float startY = ofRandomf();
 
 	xoff = ofRandomf();
@@ -124,6 +133,21 @@ void ofApp::initialize() {
 		xoff += increment;
 	}
 
+}
+
+void ofApp::initializeColors(float j, float a, float b, int newSeed) {
+	if (newSeed) {
+		seed = newSeed;
+	}
+	else {
+		seed = floor(ofRandom(50000));
+	}
+
+	ofSeedRandom(seed);
+	ofLog() << a << ", " << b << "#" << seed;
+	for (int i = 0; i < PALETTE_SIZE; i++) {
+		palette[i] = jab_random(j, 1. - a, 1. - b);
+	}
 	dust->set_colors(palette);
 }
 
@@ -139,6 +163,7 @@ ofColor ofApp::jab_random(float j, float a, float b) {
 //--------------------------------------------------------------
 void ofApp::update(){
 	rx.update();
+	selector.update();
 	if (paused) return;
 	if (calibrationMode) return;
 
@@ -206,6 +231,8 @@ void ofApp::renderTarget(bool filled) {
 	msg = "Offset: " + ofToString(offsetX) + ", " + ofToString(offsetY);
 	ofDrawBitmapString(msg, 10, 40);
 	ofPopStyle();
+
+	gui.draw();
 }
 
 //--------------------------------------------------------------
@@ -260,8 +287,6 @@ void ofApp::draw() {
 
 #endif // RENDER_MAGIC
 
-	renderTarget(false);
-
 
 #ifdef RENDER_FLOWS
 
@@ -286,7 +311,6 @@ void ofApp::draw() {
 		}
 	}
 #endif // RENDER_FLOWS
-	gui.draw();
 }
 
 void ofApp::draw_with(ofFbo& source, ofFbo& target, ofShader& s, const glm::vec2& direction, float scale) {

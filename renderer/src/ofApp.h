@@ -7,6 +7,9 @@
 #include "OscControl.h"
 #include "boid.h"
 #include "magicdust.h"
+#include "../ModeSelector.h"
+
+#pragma comment(lib, "userenv.lib")
 
 //#define PRODUCTION
 
@@ -14,6 +17,7 @@ class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
+		void setupModes();
 		void update();
 		void draw();
 
@@ -50,8 +54,10 @@ private:
 	ofFbo channel0, channel1, channel2;
 	ofPixels output;
 	ofColor jab_random(float j, float a, float b);
+	ModeSelector selector;
 
 	void initialize();
+	void initializeColors(float j, float a, float b, int newSeed=0);
 	glm::vec2 field_force_at(int col, int row, float speed);
 	glm::ivec2 field_coord(float x, float y);
 
@@ -66,7 +72,7 @@ private:
 
 	std::unique_ptr<MagicDust> dust;
 	ofPixels pixels;
-
+	int seed;
 	bool chan0, chan1;
 
 	ofxPanel gui;
