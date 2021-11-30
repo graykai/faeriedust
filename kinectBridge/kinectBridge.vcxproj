@@ -54,23 +54,23 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../deps/of/of/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
-    <Import Project="../deps/of/of/addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
+    <Import Project="../../of/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+    <Import Project="../../of/addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../deps/of/of/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
-    <Import Project="../deps/of/of/addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
+    <Import Project="../../of/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+    <Import Project="../../of/addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../deps/of/of/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
-    <Import Project="../deps/of/of/addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
+    <Import Project="../../of/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+    <Import Project="../../of/addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../deps/of/of/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
-    <Import Project="../deps/of/of/addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
+    <Import Project="../../of/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+    <Import Project="../../of/addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -104,7 +104,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\deps\of\of\addons\ofxGui\src;..\deps\of\of\addons\ofxKinectForWindows2\src;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;..\deps\of\of\addons\ofxOsc\libs;..\deps\of\of\addons\ofxOsc\libs\oscpack;..\deps\of\of\addons\ofxOsc\libs\oscpack\src;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\posix;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\win32;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc;..\deps\of\of\addons\ofxOsc\src;..\deps\of\of\addons\ofxXmlSettings\libs;..\deps\of\of\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\of\addons\ofxGui\src;..\..\of\addons\ofxKinectForWindows2\src;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;..\..\of\addons\ofxOsc\libs;..\..\of\addons\ofxOsc\libs\oscpack;..\..\of\addons\ofxOsc\libs\oscpack\src;..\..\of\addons\ofxOsc\libs\oscpack\src\ip;..\..\of\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\of\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\of\addons\ofxOsc\libs\oscpack\src\osc;..\..\of\addons\ofxOsc\src;..\..\of\addons\ofxXmlSettings\libs;..\..\of\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <PreprocessorDefinitions>OSC_HOST_LITTLE_ENDIAN</PreprocessorDefinitions>
@@ -125,7 +125,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\deps\of\of\addons\ofxGui\src;..\deps\of\of\addons\ofxKinectForWindows2\src;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;..\deps\of\of\addons\ofxOsc\libs;..\deps\of\of\addons\ofxOsc\libs\oscpack;..\deps\of\of\addons\ofxOsc\libs\oscpack\src;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\posix;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\win32;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc;..\deps\of\of\addons\ofxOsc\src;..\deps\of\of\addons\ofxXmlSettings\libs;..\deps\of\of\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\of\addons\ofxGui\src;..\..\of\addons\ofxKinectForWindows2\src;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;..\..\of\addons\ofxOsc\libs;..\..\of\addons\ofxOsc\libs\oscpack;..\..\of\addons\ofxOsc\libs\oscpack\src;..\..\of\addons\ofxOsc\libs\oscpack\src\ip;..\..\of\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\of\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\of\addons\ofxOsc\libs\oscpack\src\osc;..\..\of\addons\ofxOsc\src;..\..\of\addons\ofxXmlSettings\libs;..\..\of\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
@@ -146,7 +146,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\deps\of\of\addons\ofxGui\src;..\deps\of\of\addons\ofxKinectForWindows2\src;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;..\deps\of\of\addons\ofxOsc\libs;..\deps\of\of\addons\ofxOsc\libs\oscpack;..\deps\of\of\addons\ofxOsc\libs\oscpack\src;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\posix;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\win32;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc;..\deps\of\of\addons\ofxOsc\src;..\deps\of\of\addons\ofxXmlSettings\libs;..\deps\of\of\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\of\addons\ofxGui\src;..\..\of\addons\ofxKinectForWindows2\src;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;..\..\of\addons\ofxOsc\libs;..\..\of\addons\ofxOsc\libs\oscpack;..\..\of\addons\ofxOsc\libs\oscpack\src;..\..\of\addons\ofxOsc\libs\oscpack\src\ip;..\..\of\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\of\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\of\addons\ofxOsc\libs\oscpack\src\osc;..\..\of\addons\ofxOsc\src;..\..\of\addons\ofxXmlSettings\libs;..\..\of\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
@@ -170,7 +170,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\deps\of\of\addons\ofxGui\src;..\deps\of\of\addons\ofxKinectForWindows2\src;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;..\deps\of\of\addons\ofxOsc\libs;..\deps\of\of\addons\ofxOsc\libs\oscpack;..\deps\of\of\addons\ofxOsc\libs\oscpack\src;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\posix;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\win32;..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc;..\deps\of\of\addons\ofxOsc\src;..\deps\of\of\addons\ofxXmlSettings\libs;..\deps\of\of\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\of\addons\ofxGui\src;..\..\of\addons\ofxKinectForWindows2\src;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data;..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source;C:\Program Files\Microsoft SDKs\Kinect\v2.0_1409\inc;..\..\of\addons\ofxOsc\libs;..\..\of\addons\ofxOsc\libs\oscpack;..\..\of\addons\ofxOsc\libs\oscpack\src;..\..\of\addons\ofxOsc\libs\oscpack\src\ip;..\..\of\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\of\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\of\addons\ofxOsc\libs\oscpack\src\osc;..\..\of\addons\ofxOsc\src;..\..\of\addons\ofxXmlSettings\libs;..\..\of\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <PreprocessorDefinitions>OSC_HOST_LITTLE_ENDIAN</PreprocessorDefinitions>
@@ -190,93 +190,93 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxBaseGui.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxButton.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxColorPicker.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxGuiGroup.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxInputField.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxLabel.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxPanel.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxSlider.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxSliderGroup.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxGui\src\ofxToggle.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Body.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Joint.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Device.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BaseImage.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Body.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BodyIndex.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Color.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Depth.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Infrared.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\LongExposureInfraRed.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\src\ofxOscBundle.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\src\ofxOscMessage.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\src\ofxOscParameterSync.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\src\ofxOscReceiver.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\src\ofxOscSender.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxXmlSettings\libs\tinyxml.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
-    <ClCompile Include="..\deps\of\of\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxBaseGui.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxButton.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxColorPicker.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxGuiGroup.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxInputField.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxLabel.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxPanel.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxSlider.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxSliderGroup.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxGui\src\ofxToggle.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Body.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Joint.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Device.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BaseImage.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Body.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BodyIndex.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Color.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Depth.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Infrared.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\LongExposureInfraRed.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\src\ofxOscBundle.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\src\ofxOscMessage.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\src\ofxOscParameterSync.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\src\ofxOscReceiver.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\of\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxBaseGui.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxButton.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxColorPicker.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxGui.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxGuiGroup.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxGuiUtils.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxInputField.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxLabel.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxPanel.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxSlider.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxSliderGroup.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxGui\src\ofxToggle.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Body.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Joint.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Device.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Base.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BaseImage.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Body.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BodyIndex.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Color.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Depth.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Infrared.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\LongExposureInfrared.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\src\ofxOsc.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\src\ofxOscArg.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\src\ofxOscBundle.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\src\ofxOscMessage.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\src\ofxOscParameterSync.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\src\ofxOscReceiver.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\src\ofxOscSender.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscException.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
-    <ClInclude Include="..\deps\of\of\addons\ofxXmlSettings\libs\tinyxml.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxBaseGui.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxButton.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxColorPicker.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxGui.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxGuiGroup.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxGuiUtils.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxInputField.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxLabel.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxPanel.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxSlider.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxSliderGroup.h" />
+    <ClInclude Include="..\..\of\addons\ofxGui\src\ofxToggle.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Body.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Data\Joint.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Device.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Base.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BaseImage.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Body.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\BodyIndex.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Color.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Depth.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\Infrared.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Source\LongExposureInfrared.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2\Utils.h" />
+    <ClInclude Include="..\..\of\addons\ofxKinectForWindows2\src\ofxKinectForWindows2.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\src\ofxOsc.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\src\ofxOscArg.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\src\ofxOscBundle.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\src\ofxOscMessage.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\src\ofxOscParameterSync.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\src\ofxOscReceiver.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscException.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
+    <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
+    <ClInclude Include="..\..\of\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
+    <ClInclude Include="..\..\of\addons\ofxXmlSettings\libs\tinyxml.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
