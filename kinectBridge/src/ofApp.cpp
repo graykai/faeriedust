@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+	ofEnableBlendMode(ofBlendMode::OF_BLENDMODE_SCREEN);
 	setupOsc();
 	setupKinect();
 	offset = { 0., 0. };
@@ -51,7 +52,7 @@ void ofApp::applySeeking() {
 }
 
 #define worldScale(v, m) ofMap(v, 0.0, m, 0.0, 1.0)
-#define depthScale(x, y) ofMap(x, 0.0, 1.0, 0.0, DEPTH_WIDTH), ofMap(y, 0.0, 1.0, 0.0, DEPTH_HEIGHT)
+#define depthScale(x, y) ofMap(x, 0.0, 1.0, 0.0, DEPTH_WIDTH*2), ofMap(y, 0.0, 1.0, 0.0, DEPTH_HEIGHT*2)
 
 void ofApp::sendBoundingUpdate() {
 	if (!bodyDetected && !calibrationMode) {
@@ -138,15 +139,23 @@ ofRectangle ofApp::processBody(const ofxKinectForWindows2::Data::Body& body) {
 //--------------------------------------------------------------
 void ofApp::draw(){
 	if (kinect.isFrameNew()) {
-		kinect.getDepthSource()->draw(0, 0, DEPTH_WIDTH, DEPTH_HEIGHT);
-		kinect.getBodyIndexSource()->draw(0, DEPTH_HEIGHT, DEPTH_WIDTH, DEPTH_HEIGHT);
-		kinect.getBodySource()->drawProjected(0, DEPTH_HEIGHT, DEPTH_WIDTH, DEPTH_HEIGHT, ofxKinectForWindows2::DepthCamera);
+		ofDisableBlendMode();
+		ofSetColor(0);
+		ofDrawRectangle(0, 0, DEPTH_WIDTH * 2, DEPTH_HEIGHT * 4);
+		ofEnableBlendMode(ofBlendMode::OF_BLENDMODE_SCREEN);
+		ofSetColor(255, 128);
+		kinect.getDepthSource()->draw(0, 0, DEPTH_WIDTH * 2, DEPTH_HEIGHT * 2);
+		kinect.getDepthSource()->draw(0, 0, DEPTH_WIDTH*2, DEPTH_HEIGHT*2);
+		ofDisableBlendMode();
+		ofSetColor(255);
+		kinect.getBodyIndexSource()->draw(0, DEPTH_HEIGHT*2, DEPTH_WIDTH*2, DEPTH_HEIGHT*2);
+		kinect.getBodySource()->drawProjected(0, DEPTH_HEIGHT*2, DEPTH_WIDTH*2, DEPTH_HEIGHT*2, ofxKinectForWindows2::DepthCamera);
 
 		if (bodyDetected)
 		{
 			ofPushStyle();
 			ofPushMatrix();
-			ofTranslate(0, DEPTH_HEIGHT);
+			ofTranslate(0, DEPTH_HEIGHT*2);
 			ofNoFill();
 			ofSetLineWidth(3);
 			ofSetColor(ofColor::darkMagenta);
