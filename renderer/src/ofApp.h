@@ -8,6 +8,7 @@
 #include "boid.h"
 #include "magicdust.h"
 #include "ModeSelector.h"
+#include "transition.h"
 
 #pragma comment(lib, "userenv.lib")
 
@@ -84,4 +85,6 @@ private:
 	glm::vec2 debugOffset;
 
 	OscControl rx;
+	Transition fader;
+	float faderAlpha = 255.0;
 };

@@ -130,6 +130,9 @@
     <ClCompile Include="src\ModeSelector.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\transition.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -360,6 +363,9 @@
       <Filter>addons\ofxQuadtree\libs\libquadtree\includes</Filter>
     </ClInclude>
     <ClInclude Include="src\ModeSelector.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\transition.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

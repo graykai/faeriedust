@@ -225,6 +225,7 @@
     <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
     <ClCompile Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
     <ClCompile Include="..\..\of\addons\ofxQuadtree\src\ofxQuadtree.cpp" />
+    <ClCompile Include="src\transition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ModeSelector.h" />
@@ -280,6 +281,7 @@
     <ClInclude Include="..\..\of\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
     <ClInclude Include="..\..\of\addons\ofxQuadtree\src\ofxQuadtree.h" />
     <ClInclude Include="..\..\of\addons\ofxQuadtree\libs\libquadtree\includes\quadtree.h" />
+    <ClInclude Include="src\transition.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

@@ -104,11 +104,23 @@ void ofApp::setupModes() {
 		initializeColors(0.8, 0.703787, 0.641102, 20923); // Icey Mode
 		blurX.set(7.5);
 		blurY.set(1.0);
-	});
+		fader.target(255.0, FADE_TIME, [&](float v) {
+			faderAlpha = v;
+			}, [&]() {
+				return faderAlpha;
+			});
+		});
 	selector.addMode(1, [&]() {
 		initializeColors(0.8, 0.19834, 0.522721, 35879); // Angry Mode
 		blurX.set(3.0);
 		blurY.set(3.0);
+	});
+	selector.addMode(2, [&]() {
+		fader.target(0, FADE_TIME, [&](float v) {
+			faderAlpha = v;
+			}, [&]() {
+				return faderAlpha;
+			});
 	});
 
 }
@@ -169,6 +181,7 @@ ofColor ofApp::jab_random(float j, float a, float b) {
 void ofApp::update(){
 	rx.update();
 	selector.update();
+	fader.update();
 	if (paused) return;
 	if (calibrationMode) return;
 
@@ -316,6 +329,12 @@ void ofApp::draw() {
 		}
 	}
 #endif // RENDER_FLOWS
+
+	if (faderAlpha < 255.0) {
+		ofSetColor(0, 255.0 - faderAlpha);
+		ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
+		ofSetColor(255);
+	}
 }
 
 void ofApp::draw_with(ofFbo& source, ofFbo& target, ofShader& s, const glm::vec2& direction, float scale) {

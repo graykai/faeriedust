@@ -17,6 +17,7 @@ const int STARTING_BOIDS =5000;
 const int PALETTE_SIZE = 5;
 const int ITERATIONS = 5;
 const uint16_t RX_PORT = 8000;
+const float FADE_TIME = 1.0f;
 
 class ControlValues {
 public:
