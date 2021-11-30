@@ -127,7 +127,7 @@
     <ClCompile Include="..\..\of\addons\ofxQuadtree\src\ofxQuadtree.cpp">
       <Filter>addons\ofxQuadtree\src</Filter>
     </ClCompile>
-    <ClCompile Include="ModeSelector.cpp">
+    <ClCompile Include="src\ModeSelector.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -359,7 +359,7 @@
     <ClInclude Include="..\..\of\addons\ofxQuadtree\libs\libquadtree\includes\quadtree.h">
       <Filter>addons\ofxQuadtree\libs\libquadtree\includes</Filter>
     </ClInclude>
-    <ClInclude Include="ModeSelector.h">
+    <ClInclude Include="src\ModeSelector.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

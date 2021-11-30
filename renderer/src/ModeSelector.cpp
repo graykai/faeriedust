@@ -22,6 +22,11 @@ void ModeSelector::update() {
 	activate->second();
 }
 
+void ModeSelector::setMode(int mode) {
+	changed = true;
+	this->mode = mode;
+}
+
 void ModeSelector::addMode(int mode, Setter fnc) {
 	activators.insert_or_assign(mode, fnc);
 }

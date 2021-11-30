@@ -95,15 +95,20 @@ void ofApp::setup() {
 	ofSetBackgroundAuto(false);
 
 	initialize();
+	selector.setMode(0);
 }
 
 void ofApp::setupModes() {
 	selector.setup();
 	selector.addMode(0, [&]() {
 		initializeColors(0.8, 0.703787, 0.641102, 20923); // Icey Mode
+		blurX.set(7.5);
+		blurY.set(1.0);
 	});
 	selector.addMode(1, [&]() {
 		initializeColors(0.8, 0.19834, 0.522721, 35879); // Angry Mode
+		blurX.set(3.0);
+		blurY.set(3.0);
 	});
 
 }

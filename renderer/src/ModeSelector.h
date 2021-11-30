@@ -13,6 +13,7 @@ public:
 	void update();
 	void addMode(int mode, Setter fnc);
 	void newMidiMessage(ofxMidiMessage& msg);
+	void setMode(int mode);
 
 protected:
 	ofxMidiIn midi;

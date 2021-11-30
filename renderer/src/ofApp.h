@@ -7,11 +7,11 @@
 #include "OscControl.h"
 #include "boid.h"
 #include "magicdust.h"
-#include "../ModeSelector.h"
+#include "ModeSelector.h"
 
 #pragma comment(lib, "userenv.lib")
 
-#define PRODUCTION
+//#define PRODUCTION
 
 class ofApp : public ofBaseApp{
 
