@@ -11,7 +11,7 @@
 
 #pragma comment(lib, "userenv.lib")
 
-//#define PRODUCTION
+#define PRODUCTION
 
 class ofApp : public ofBaseApp{
 

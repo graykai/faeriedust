@@ -184,7 +184,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ModeSelector.cpp" />
+    <ClCompile Include="src\ModeSelector.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\boid.cpp" />
@@ -227,7 +227,7 @@
     <ClCompile Include="..\..\of\addons\ofxQuadtree\src\ofxQuadtree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ModeSelector.h" />
+    <ClInclude Include="src\ModeSelector.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\boid.h" />
     <ClInclude Include="src\constants.h" />

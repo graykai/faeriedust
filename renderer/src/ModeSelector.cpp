@@ -8,7 +8,6 @@ void ModeSelector::setup() {
 
 void ModeSelector::newMidiMessage(ofxMidiMessage& msg) {
 	if (msg.status != MIDI_NOTE_ON) return;
-	ofLog() << msg.channel << ":" << msg.pitch;
 	if (msg.channel != 10) return;
 	mode = msg.pitch;
 	changed = true;

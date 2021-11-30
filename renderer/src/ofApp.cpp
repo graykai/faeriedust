@@ -349,6 +349,9 @@ void ofApp::keyPressed(int key){
 	case '2':
 		chan1 = !chan1;
 		break;
+	case '+':
+		ofLog() << "Output Parameters";
+		break;
 	}
 }
 
