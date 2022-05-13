@@ -25,3 +25,4 @@ This system is split into a couple of pieces:
 - KinectBridge which sends tracking points over OSC
 - TouchOSC to tune how the kinect and physics works
   - All data is sent to KinectBridge which will relay physics params to the renderer
+- midiScratchPad which sends messages based on midi input from a small pad controller so the screen and color aesthetics can be switched on the fly
