@@ -6,6 +6,7 @@ An system for dance performance with projection
 
 - Windows 10
 - OpenFrameworks 0.11.2
+  - Note that the Visual Studio solutions expect OpenFrameworks to exist in an `of` folder that is a peer to this repository.
 - Kinect V2
 
 ## OSC Ports
