@@ -16,7 +16,8 @@ An system for dance performance with projection
 
 ## OpenFrameworks Addons
 
-- Something
+- [ofxQuadtree](https://github.com/graysonarts/ofxQuadtree)
+- [ofxMidi](https://github.com/danomatika/ofxMidi)
 
 ## Architecture
 
